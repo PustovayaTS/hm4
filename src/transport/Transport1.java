@@ -43,4 +43,6 @@ public abstract class Transport1 {
 
     public abstract void startMoving();
     public abstract void completeTheMovement();
+
+    public abstract void determineTypeCar();
 }

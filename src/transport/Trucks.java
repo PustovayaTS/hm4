@@ -1,8 +1,37 @@
 package transport;
 
 public class Trucks extends Transport1 implements Competing {
-    public Trucks(String brand, String model, double enginePower) {
+
+    private TypeOfLoadCapacity typeOfLoadCapacity;
+
+    public Trucks(String brand, String model, double enginePower, TypeOfLoadCapacity typeOfLoadCapacity) {
         super(brand, model, enginePower);
+        this.typeOfLoadCapacity = typeOfLoadCapacity;
+    }
+
+    public enum TypeOfLoadCapacity {
+        N_1 ("до 3,5 тонн"),
+        N_2 ("свыше 3,5 до 12 тонн"),
+        N_3 ("свыше 12 тонн");
+
+        private final String totalMass;
+
+        TypeOfLoadCapacity(String totalMass) {
+            this.totalMass = totalMass;
+        }
+
+        public String getTotalMass() {
+            return totalMass;
+        }
+    }
+
+    @Override
+    public void determineTypeCar() {
+        if (typeOfLoadCapacity == null) {
+            System.out.println("Данных по авто недостаточно.");
+        } else {
+            System.out.println(getBrand() + " " + getModel() + " Тип грузоподъемности - " + typeOfLoadCapacity);
+        }
     }
 
     @Override
@@ -18,6 +47,14 @@ public class Trucks extends Transport1 implements Competing {
     @Override
     public void doPitStop() {
         System.out.println("Водитель грузовика " + getBrand() + getModel() + " заехал на пит-стоп");
+    }
+
+    public TypeOfLoadCapacity getTypeOfLoadCapacity() {
+        return typeOfLoadCapacity;
+    }
+
+    public void setTypeOfLoadCapacity(TypeOfLoadCapacity typeOfLoadCapacity) {
+        this.typeOfLoadCapacity = typeOfLoadCapacity;
     }
 
     @Override
