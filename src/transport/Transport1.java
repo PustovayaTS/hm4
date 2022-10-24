@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public abstract class Transport1 {
     private final String brand;
     private final String model;

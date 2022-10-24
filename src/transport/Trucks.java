@@ -29,4 +29,19 @@ public class Trucks extends Transport1 implements Competing {
     public int getMaxSpeed() {
         return 90;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
