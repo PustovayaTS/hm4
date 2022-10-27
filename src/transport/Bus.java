@@ -70,6 +70,11 @@ public class Bus extends Transport1 implements Competing{
     }
 
     @Override
+    public void passDiagnostics() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не нуждается.");
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }

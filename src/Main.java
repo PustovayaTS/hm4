@@ -1,7 +1,7 @@
 import transport.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Car lada = new Car("Lada", "Granta", 1.7, Car.BodyType.CROSSOVER);
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, Car.BodyType.SEDAN);
@@ -23,6 +23,17 @@ public class Main {
 
         gazel.determineTypeCar();
         volvo.determineTypeCar();
+
+        try {
+            lada.passDiagnostics();
+        } catch (DiagnosticsException e) {
+            System.out.println("Транспортное средство не прошло диагностику." + e.getMessage());
+        }
+        try {
+            gazel.passDiagnostics();
+        } catch (DiagnosticsException e) {
+            System.out.println("Транспортное средство не прошло диагностику." + e.getMessage());
+        }
 
     }
 }

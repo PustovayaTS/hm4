@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Trucks extends Transport1 implements Competing {
 
     private TypeOfLoadCapacity typeOfLoadCapacity;
@@ -65,6 +67,13 @@ public class Trucks extends Transport1 implements Competing {
     @Override
     public int getMaxSpeed() {
         return 90;
+    }
+
+    @Override
+    public void passDiagnostics() throws DiagException {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            throw new DiagException("Грузовик " + this.getBrand() + " " + this.getModel() + " не прошла диагностику.");
+        }
     }
 
     @Override
