@@ -67,11 +67,17 @@ public class Car extends Transport1 implements Competing{
     }
 
     @Override
-    public void passDiagnostics() throws DiagException {
+    public boolean passDiagnostics() throws DiagException {
         if (ThreadLocalRandom.current().nextBoolean()) {
             throw new DiagException("Машина " + this.getBrand() + " " + this.getModel() + " не прошла диагностику.");
         }
 
+        return false;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("Машина " + getBrand() + " " + getModel() + " починина.");
     }
 
     @Override

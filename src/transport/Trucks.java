@@ -70,10 +70,16 @@ public class Trucks extends Transport1 implements Competing {
     }
 
     @Override
-    public void passDiagnostics() throws DiagException {
+    public boolean passDiagnostics() throws DiagException {
         if (ThreadLocalRandom.current().nextBoolean()) {
             throw new DiagException("Грузовик " + this.getBrand() + " " + this.getModel() + " не прошла диагностику.");
         }
+        return false;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " починен.");
     }
 
     @Override

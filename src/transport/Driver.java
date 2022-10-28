@@ -47,11 +47,8 @@ public abstract class Driver <transport extends Transport1>{
         System.out.println("Водитель " + this.fullName + " заправляет " + this.car.getBrand());
     }
 
+    @Override
     public String toString() {
-        return "Водитель "
-                + this.fullName
-                + " управляет автомобилем "
-                + this.car.getBrand()
-                + " и будет участвовать в заезде.";
+        return fullName + ", права категории " + driverLicense + ", водительский стаж " + experience + " лет.";
     }
 }
