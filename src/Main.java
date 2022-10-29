@@ -1,6 +1,7 @@
 import transport.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -67,15 +68,21 @@ public class Main {
         //    System.out.println("Транспортное средство не прошло диагностику." + e.getMessage());
         //}
 
-        List<Transport1> transport1s = List.of(
+        List<Transport1> transport1s1 = List.of(
                 lada,audi,
                 hyundai,volvo,
                 gazel,mers
                 );
 
+        LinkedList<Transport1> transport1s = new LinkedList<Transport1>();
+
+        transport1s.addAll(transport1s1);
+        ServiceStation srv = new ServiceStation();
         for (Transport1 transport1 : transport1s) {
             printInfo(transport1);
+            srv.addToQueue(transport1);
         }
+        srv.technicalInspection();
     }
 
 
@@ -85,4 +92,7 @@ public class Main {
         System.out.println("Спонсоры: " + transport1.getSponsors());
         System.out.println("Механики: " + transport1.getMechanics());
     }
+
+    ServiceStation serviceStation = new ServiceStation();
+    //serviceStation.addToQueue(lada);
 }
