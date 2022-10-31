@@ -80,4 +80,18 @@ public abstract class Transport1 {
     }
 
     public abstract void repair();
+
+    @Override
+    public String toString() {
+        return "Transport1{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", enginePower=" + enginePower +
+                ", def='" + def + '\'' +
+                ", drivers=" + drivers +
+                ", mechanics=" + mechanics +
+                ", sponsors=" + sponsors +
+                ", participants=" + participants +
+                '}';
+    }
 }

@@ -1,8 +1,6 @@
 import transport.*;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -71,18 +69,22 @@ public class Main {
         List<Transport1> transport1s1 = List.of(
                 lada,audi,
                 hyundai,volvo,
-                gazel,mers
+                gazel,mers,lada
                 );
 
-        LinkedList<Transport1> transport1s = new LinkedList<Transport1>();
+        //LinkedList<Transport1> transport1s = new LinkedList<Transport1>();
+        TransportList transportList = new TransportList();
+        transportList.addListAll(transport1s1);
+        ServiceStation srv = new ServiceStation();
+        System.out.println(transportList);
 
-        transport1s.addAll(transport1s1);
+        /*transport1s.addAll(transport1s1);
         ServiceStation srv = new ServiceStation();
         for (Transport1 transport1 : transport1s) {
             printInfo(transport1);
             srv.addToQueue(transport1);
         }
-        srv.technicalInspection();
+        srv.technicalInspection();*/
     }
 
 
