@@ -66,7 +66,7 @@ public class Main {
         //    System.out.println("Транспортное средство не прошло диагностику." + e.getMessage());
         //}
 
-        List<Transport1> transport1s1 = List.of(
+        List<Transport1> participantList = List.of(
                 lada,audi,
                 hyundai,volvo,
                 gazel,mers,lada
@@ -74,11 +74,11 @@ public class Main {
 
         //LinkedList<Transport1> transport1s = new LinkedList<Transport1>();
         TransportList transportList = new TransportList();
-        transportList.addListAll(transport1s1);
+        transportList.addListAll(participantList);
         ServiceStation srv = new ServiceStation();
         System.out.println(transportList);
 
-        /*transport1s.addAll(transport1s1);
+        /*transport1s.addAll(participantList);
         ServiceStation srv = new ServiceStation();
         for (Transport1 transport1 : transport1s) {
             printInfo(transport1);
